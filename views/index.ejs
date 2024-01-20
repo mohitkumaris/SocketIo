@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/socket.io/socket.io.js"></script>
+  </head>
+  <body>
+    <h1>Data from API</h1>
+    <h2 id="count"></h2>
+    <script>
+      const socket = io();
+      // UI is connected to socket
+      console.log(socket);
+
+      // we have to listen to the emit event
+
+      socket.on("modified_forecast", (count) => {
+        document.querySelector("#count").innerHTML = count;
+      });
+    </script>
+  </body>
+</html>
